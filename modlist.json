@@ -2,12 +2,12 @@
   "version": 1,
   "mods": [
     {
-      "filename": "jei-1.21.1-neoforge.jar",
-      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/abc123/jei-1.21.1-neoforge.jar"
+      "filename": "jei-1.21.1-neoforge-19.44.0.403.jar",
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/LtwmFHuF/jei-1.21.1-neoforge-19.44.0.403.jar?mr_download_reason=standalone&mr_game_version=1.21.1&mr_loader=neoforge"
     },
     {
-      "filename": "embeddium-1.21.1-neoforge.jar",
-      "url": "https://cdn.modrinth.com/data/xyz789/versions/def456/embeddium-1.21.1-neoforge.jar"
+      "filename": "embeddium-1.0.15+mc1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/sk9rgfiA/versions/J7b96IEd/embeddium-1.0.15%2Bmc1.21.1.jar?mr_download_reason=standalone&mr_game_version=1.21.1&mr_loader=neoforge"
     }
   ]
 }
