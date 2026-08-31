@@ -11,12 +11,15 @@ from pathlib import Path
 import requests
 import zipfile
 import io
+import time
+import threading
+from datetime import datetime
 
 # Configuration
-LAUNCHER_NAME = "RealmsLauncher"
+LAUNCHER_NAME = "⚔️ REALMS LAUNCHER ⚔️"
 MINECRAFT_VERSION = "1.21.1"
 NEOFORGE_VERSION = "21.1.74"
-MODLIST_URL = "https://raw.githubusercontent.com/user/repo/main/modlist.json"  # Replace with actual URL
+MODLIST_URL = "https://raw.githubusercontent.com/user/repo/main/modlist.json"
 DEFAULT_MODLIST = {
     "version": 1,
     "mods": [
@@ -31,27 +34,52 @@ DEFAULT_MODLIST = {
     ]
 }
 
+# Game directory - next to launcher
+GAME_DIR = Path(__file__).parent / "RealmsGame"
+MODS_DIR = GAME_DIR / "mods"
+NEOFORGE_DIR = GAME_DIR / "neoforge"
+VERSIONS_DIR = GAME_DIR / "versions"
+LIBRARIES_DIR = GAME_DIR / "libraries"
+ASSETS_DIR = GAME_DIR / "assets"
+
 class RealmsLauncher(ctk.CTk):
     def __init__(self):
         super().__init__()
         
         # Window configuration
         self.title(LAUNCHER_NAME)
-        self.geometry("900x600")
-        self.minsize(800, 550)
+        self.geometry("1000x700")
+        self.minsize(900, 650)
         
         # Configure grid
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
         
-        # Set appearance
+        # Set appearance - medieval theme
         ctk.set_appearance_mode("dark")
-        ctk.set_default_color_theme("blue")
+        ctk.set_default_color_theme("dark-blue")
         
         # Variables
-        self.game_dir = None
+        self.game_dir = GAME_DIR
+        self.mods_dir = MODS_DIR
+        self.neoforge_dir = NEOFORGE_DIR
         self.is_downloading = False
-        self.current_status = ""
+        self.download_thread = None
+        
+        # Medieval color palette
+        self.colors = {
+            "bg": "#1a1510",
+            "frame": "#2d2420",
+            "gold": "#D4AF37",
+            "gold_light": "#FFD700",
+            "brown": "#5C4033",
+            "brown_light": "#8B4513",
+            "parchment": "#F5E6C8",
+            "text_dark": "#1a1510",
+            "text_light": "#E8D5B5",
+            "success": "#228B22",
+            "error": "#8B0000"
+        }
         
         # Create main frame
         self.create_widgets()
