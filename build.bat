@@ -1,7 +1,17 @@
 @echo off
+chcp 65001 >nul
 echo Installing dependencies...
-pip install pyinstaller
+pip install pyinstaller --quiet
+
 echo Building RealmsLauncher...
-pyinstaller --onefile --windowed --name RealmsLauncher --icon=NONE realmslauncher.py
-echo Build complete! Check the 'dist' folder for RealmsLauncher.exe
-pause
+py -m PyInstaller --onefile --windowed --name "RealmsLauncher" --icon=NONE realmslauncher.py
+
+if exist "dist\RealmsLauncher.exe" (
+    echo Build successful! RealmsLauncher.exe created in dist folder.
+) else (
+    echo Build failed! Check for errors above.
+)
+
+echo.
+echo Press any key to exit...
+pause >nul
