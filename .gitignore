@@ -1,0 +1,22 @@
+```
+# Build artifacts
+build/
+dist/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+localpycs/
+
+# Executable
+RealmsLauncher
+
+# PyInstaller files
+*.spec
+*.toc
+*.pkg
+*.pyz
+warn-*.txt
+xref-*.html
+base_library.zip
+```
