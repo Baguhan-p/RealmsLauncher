@@ -6,19 +6,23 @@ dist/
 *.dll
 *.so
 *.a
+*.lib
 *.obj
+*.o
 *.out
 
 # Dependencies
-node_modules/
 venv/
 .venv/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
 .env
 .env.local
 *.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
 
 # Editors
 .vscode/
@@ -30,8 +34,24 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# MyPy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
 
 # Compressed files
 *.zip

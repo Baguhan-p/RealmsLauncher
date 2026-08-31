@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 echo Installing dependencies...
-pip install pyinstaller customtkinter requests --quiet
+pip install pyinstaller customtkinter requests pillow packaging --quiet
 
 echo Building RealmsLauncher...
 py -m PyInstaller RealmsLauncher.spec
