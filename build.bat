@@ -1,10 +1,10 @@
 @echo off
 chcp 65001 >nul
 echo Installing dependencies...
-pip install pyinstaller --quiet
+pip install pyinstaller customtkinter --quiet
 
 echo Building RealmsLauncher...
-py -m PyInstaller --onefile --windowed --name "RealmsLauncher" --icon=NONE realmslauncher.py
+py -m PyInstaller RealmsLauncher.spec
 
 if exist "dist\RealmsLauncher.exe" (
     echo Build successful! RealmsLauncher.exe created in dist folder.
